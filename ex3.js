@@ -1,6 +1,10 @@
 var listElement = document.querySelector('#ex3 ul');
 var inputElement = document.querySelector('#ex3 input');
 
+function clearListElement() {
+    listElement.innerHTML = '';
+}
+
 function addElement(value) {
     var liElement = document.createElement('li');    
     var repoText = document.createTextNode(value);
@@ -10,17 +14,17 @@ function addElement(value) {
 }
 
 function renderLoading() {
-    listElement.innerHTML = '';
+    clearListElement();
     addElement('Carregando...');
 }
 
 function renderError() {
-    listElement.innerHTML = '';
+    clearListElement();
     addElement('404 - Usuário não existe!');
 } 
 
 function renderRepositories(repositories) {
-    listElement.innerHTML = '';    
+    clearListElement();  
 
     for (repo of repositories) {
         addElement(repo.name);
